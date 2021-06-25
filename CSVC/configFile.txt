@@ -1,0 +1,9 @@
+category MCDONALDS {
+	equals {
+		"mcdonalds";
+	}
+	contains {
+		"macca";
+		"donalds";
+	}
+}

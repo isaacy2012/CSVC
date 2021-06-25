@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Isaac Young\\Documents\\GitHub\\CSVC\\CSVC\\CSVC\\CSVC.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Isaac Young\\Documents\\GitHub\\CSVC\\CSVC\\CSVC\\CSVC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Isaac Young\\Documents\\GitHub\\CSVC\\CSVC\\CSVC\\CSVC.csproj",
+        "projectName": "CSVC",
+        "projectPath": "C:\\Users\\Isaac Young\\Documents\\GitHub\\CSVC\\CSVC\\CSVC\\CSVC.csproj",
+        "packagesPath": "C:\\Users\\Isaac Young\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Isaac Young\\Documents\\GitHub\\CSVC\\CSVC\\CSVC\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Isaac Young\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\Isaac Young\\.dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
