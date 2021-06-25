@@ -9,9 +9,6 @@ using System.Text;
 
 namespace CSVC
 {
-
-
-    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -25,22 +22,14 @@ namespace CSVC
             {
                 Debug.WriteLine(configFileDialog.FileName);
                 var rulesList = new List<Rule>();
-                ConfigParser.ParseConfigFile(File.ReadAllText(configFileDialog.FileName), rulesList);
+                long column = ConfigParser.ParseConfigFile(File.ReadAllText(configFileDialog.FileName), rulesList);
+                Debug.WriteLine($"Column: {column}");
                 foreach (var rule in rulesList)
                 {
                     Debug.WriteLine(rule);
                 }
                 // GetLines(configFileDialog.FileName);
-                    
             }
-        }
-
-        public void GetLines(string filename)
-        {
-                foreach (var x in File.ReadAllLines(filename, Encoding.UTF8))
-                {
-                    Debug.WriteLine("LINES: " + x);
-                }
         }
     }
 }

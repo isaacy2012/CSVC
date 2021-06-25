@@ -7,112 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace CSVC
 {
-    public class RequireFailedException : SystemException
-    {
-        private readonly string[] strings;
-        private readonly int i;
-        private readonly string pattern;
 
-        public RequireFailedException(string[] strings, int i, Regex pattern)
-        {
-            this.strings = strings;
-            this.i = i;
-            this.pattern = pattern.ToString();
-        }
-
-        public RequireFailedException(string[] strings, int i, string pattern)
-        {
-            this.strings = strings;
-            this.i = i;
-            this.pattern = pattern;
-        }
-
-        public override string ToString()
-        {
-            return $"Failed to match {strings[i]} and {pattern} on {i}";
-        }
-    }
-
-    public class Scanner
-    {
-        private int _i = -1;
-        private string[] strings;
-
-        public Scanner(string[] strings)
-        {
-            this.strings = strings;
-        }
-
-        public string Next()
-        {
-            return strings[++_i];
-        }
-
-        public bool HasNext(Regex pattern)
-        {
-            if (HasNext() == false)
-            {
-                return false;
-            }
-
-            return pattern.IsMatch(strings[_i + 1]);
-        }
-
-        public bool HasNext(String patternString)
-        {
-            if (HasNext() == false)
-            {
-                return false;
-            }
-
-            return patternString.Equals(strings[_i + 1]);
-        }
-
-        public bool HasNext()
-        {
-            return _i != strings.Length - 1;
-        }
-
-        public void Require(Regex pattern)
-        {
-            if (HasNext(pattern) == false)
-            {
-                throw new RequireFailedException(strings, _i + 1, pattern);
-            }
-
-            _i++;
-        }
-
-        public void Require(string patternString)
-        {
-            if (HasNext(patternString) == false)
-            {
-                throw new RequireFailedException(strings, _i + 1, patternString);
-            }
-
-            _i++;
-        }
-        
-        public bool ConsumeIf(Regex pattern)
-        {
-            if (HasNext(pattern))
-            {
-                _i++;
-                return true;
-            }
-            return false;
-        }
-
-        public bool ConsumeIf(string patternString)
-        {
-            if (HasNext(patternString))
-            {
-                _i++;
-                return true;
-            }
-            return false;
-        }
-    }
 
     public static class ConfigParser
     {
@@ -123,6 +18,12 @@ namespace CSVC
         private const string Column = "column";
         private static readonly Regex RuleType = new("equals|contains");
 
+        /// <summary>
+        /// Parse the Config File
+        /// </summary>
+        /// <param name="configFileString">The entire contents of the config file as a string</param>
+        /// <param name="list">The list of rules to add to</param>
+        /// <returns>The column of interest</returns>
         public static long ParseConfigFile(string configFileString, List<Rule> list)
         {
             long column = 0;
@@ -142,6 +43,11 @@ namespace CSVC
             return column;
         }
 
+        /// <summary>
+        /// Parse a category of rules
+        /// </summary>
+        /// <param name="s">The scanner</param>
+        /// <param name="list">The list to add to</param>
         private static void ParseCategory(Scanner s, List<Rule> list)
         {
             var categoryName = s.Next();
