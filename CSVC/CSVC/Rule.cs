@@ -1,28 +1,28 @@
-﻿using System.Transactions;
-
-namespace CSVC
+﻿namespace CSVC
 {
     public abstract class Rule
     {
-        protected readonly string match;
-        protected readonly string substitution;
+        public string Type => GetType().Name.Replace("Rule", "");
+        public string Match { get; set; }
+        public string Substitution { get; set; }
+
 
         protected Rule(string match, string substitution)
         {
-            this.match = match;
-            this.substitution = substitution;
+            Match = match;
+            Substitution = substitution;
         }
 
         public string GetSubstitution()
         {
-            return substitution;
+            return Substitution;
         }
 
         public abstract bool Applies(string input);
 
         public override string ToString()
         {
-            return $"{match} -> {substitution}";
+            return $"{Match} -> {Substitution}";
         }
     }
 
@@ -34,7 +34,7 @@ namespace CSVC
 
         public override bool Applies(string input)
         {
-            return input.Equals(match);
+            return input.Equals(Match);
         }
 
         public override string ToString()
@@ -42,7 +42,7 @@ namespace CSVC
             return $"equals: {base.ToString()}";
         }
     }
-    
+
     public class ContainsRule : Rule
     {
         public ContainsRule(string match, string substitution) : base(match, substitution)
@@ -51,9 +51,9 @@ namespace CSVC
 
         public override bool Applies(string input)
         {
-            return input.Contains(match);
+            return input.Contains(Match);
         }
-        
+
         public override string ToString()
         {
             return $"equals: {base.ToString()}";

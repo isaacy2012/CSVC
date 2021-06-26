@@ -24,15 +24,15 @@ namespace CSVC
         /// <param name="configFileString">The entire contents of the config file as a string</param>
         /// <param name="list">The list of rules to add to</param>
         /// <returns>The column of interest</returns>
-        public static long ParseConfigFile(string configFileString, List<Rule> list)
+        public static int ParseConfigFile(string configFileString, List<Rule> list)
         {
-            long column = 0;
+            int column = 0;
             var arr = Regex.Split(configFileString, "(\".*?\")|\\s+|(?=[{}(),;])|(?<=[{}(),;])")
                 .Where(str => str != String.Empty).ToArray();
             var s = new Scanner(arr);
             if (s.ConsumeIf(Column))
             {
-                column = Convert.ToInt64(s.Next());
+                column = Convert.ToInt32(s.Next());
                 s.Require(Semicolon);
             }
             while (s.ConsumeIf(Category))
