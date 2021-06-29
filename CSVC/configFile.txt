@@ -1,3 +1,9 @@
+column 0;
+category BAD {
+	contains {
+		"mac";
+	}
+}
 category MCDONALDS {
 	equals {
 		"mcdonalds";

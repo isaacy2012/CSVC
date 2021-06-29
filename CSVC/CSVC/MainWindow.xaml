@@ -5,17 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSVC"
         mc:Ignorable="d"
-        Title="CSVC" Height="250" Width="500">
+        ResizeMode="NoResize"
+        Title="CSVC" Height="557" Width="500">
     <Grid>
-        <Button x:Name="LoadConfigFileButton" Content="Load Config File" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="125"
+        <Button Content="Load Config File" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"
+                Width="125"
                 Click="LoadConfigFileButton_OnClick" />
-        <Button x:Name="LoadCSVFileButton" Content="Load CSV File" HorizontalAlignment="Left" Margin="125,0,0,0" VerticalAlignment="Top" Width="125"
+        <Button Content="Load CSV File" HorizontalAlignment="Left" Margin="125,0,0,0" VerticalAlignment="Top"
+                Width="125"
                 Click="LoadCSVFileButton_OnClick" />
-        <Button x:Name="Convert" Content="Convert to CSV File" HorizontalAlignment="Left" Margin="250,0,0,0" VerticalAlignment="Top" Width="125"
+        <Button Content="Convert to CSV File" HorizontalAlignment="Left" Margin="250,0,0,0" VerticalAlignment="Top"
+                Width="125"
                 Click="ConvertButton_OnClick" />
-        <DataGrid Name="RulesDataGrid" HorizontalAlignment="Left" Margin="0,21,0,0" VerticalAlignment="Top" Height="300" Width="500" AutoGenerateColumns="True">
-        </DataGrid>
-        <DataGrid Name="CSVDataGrid" HorizontalAlignment="Left" Margin="0,321,0,0" VerticalAlignment="Top" Height="300" Width="500" AutoGenerateColumns="True">
-        </DataGrid>
+        <DataGrid Name="RulesDataGrid" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"
+                  Height="500" Width="500" AutoGenerateColumns="True" />
+        <TextBlock
+            Name="ConfigInfoTextBlock"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" 
+            Margin="0,21,0,0"
+            Height="18" Width="500" TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
+            Config Loaded: None
+        </TextBlock>
+        <TextBlock
+            Name="CsvInfoTextBlock"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" 
+            Margin="0,39,0,0"
+            Height="18" Width="500" TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
+            CSV Loaded: None
+        </TextBlock>
     </Grid>
 </Window>
