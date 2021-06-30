@@ -19,7 +19,6 @@ namespace CSVC {
     public partial class MainWindow : Window {
         private List<Rule> RulesList { get; set; }
         private List<List<string>> CsvLineList { get; set; }
-
         private bool ConfigLoaded { get; set; }
         private bool CsvLoaded { get; set; }
         private ConfigParams Params { get; set; }
@@ -52,11 +51,6 @@ namespace CSVC {
             ConfigLoaded = true;
         }
 
-        /// <summary>
-        /// When the LoadCSVFile button is clicked
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LoadCSVFileButton_OnClick(object sender, RoutedEventArgs e) {
             var csvFileDialog = new OpenFileDialog {Filter = "Comma Seperated Values (*.csv)|*.csv"};
             if (csvFileDialog.ShowDialog() != true) return;

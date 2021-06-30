@@ -21,6 +21,7 @@ namespace CSVC {
         private static readonly Regex RuleType = new("equals|is|contains|matches");
         private static readonly Regex IsEquals = new Regex("equals|is");
         private static readonly Regex Quoted = new("\".*\"");
+
         private delegate Rule RuleSupplier(string match, string substitution);
 
         /// <summary>
@@ -107,11 +108,11 @@ namespace CSVC {
             s.Require(Openbrace);
             while (s.HasNext(RuleType)) {
                 if (s.ConsumeIf(IsEquals)) {
-                    ParseRule(categoryName, s, list, (x, y) => new EqualsRule(x, y));
+                    ParseRuleSet(categoryName, s, list, (x, y) => new EqualsRule(x, y));
                 } else if (s.ConsumeIf(Contains)) {
-                    ParseRule(categoryName, s, list, (x, y) => new ContainsRule(x, y));
+                    ParseRuleSet(categoryName, s, list, (x, y) => new ContainsRule(x, y));
                 } else if (s.ConsumeIf(Matches)) {
-                    ParseRule(categoryName, s, list, (x, y) => new MatchesRule(x, y));
+                    ParseRuleSet(categoryName, s, list, (x, y) => new MatchesRule(x, y));
                 }
             }
 
@@ -126,7 +127,7 @@ namespace CSVC {
         /// <param name="s"></param>
         /// <param name="list"></param>
         /// <param name="ruleSupplier">Rule Supplier</param>
-        private static void ParseRule(string categoryName, Scanner s, List<Rule> list, RuleSupplier ruleSupplier) {
+        private static void ParseRuleSet(string categoryName, Scanner s, List<Rule> list, RuleSupplier ruleSupplier) {
             s.Require(Openbrace);
             while (s.HasNext(Closebrace) == false) {
                 s.RequireNext(Quoted);
@@ -134,7 +135,7 @@ namespace CSVC {
                 s.ConsumeIf(Semicolon);
                 list.Add(rule);
             }
-
+            
             s.Require(Closebrace);
         }
 
