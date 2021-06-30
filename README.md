@@ -1,7 +1,7 @@
 # CSVC
 Categorise CSV cells based on string matching and Regex. By parsing a config file, CSVC automatically categorizes the CSV cells. 
 
-![Screenshot](readMeImages/screenshot.PNG)
+![Screenshot](readMeImages/screenshot.png)
 
 # Parameters
 ```noheader``` means the input CSV file doesn't contain a header, so matching can begin from the first (0 indexed) row
