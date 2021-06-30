@@ -1,5 +1,7 @@
 # CSVC
-Categorise CSV cells based on string matching and Regex. By parsing a config file, CSVC automatically categorizes the CSV cells. 
+## Categorise CSV cells based on string matching and Regex. 
+
+By parsing a config file, CSVC automatically categorizes the CSV cells. 
 
 ![Screenshot](readMeImages/screenshot.png)
 
