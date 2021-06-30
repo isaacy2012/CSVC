@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:CSVC"
         mc:Ignorable="d"
         Title="CSVC" 
-        MinHeight="500" 
+        MinHeight="400" 
         MinWidth="388"
-        Height="500" 
+        Height="400" 
         Width="388"
         >
     <Grid>

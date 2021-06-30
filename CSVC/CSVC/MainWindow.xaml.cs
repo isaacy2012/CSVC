@@ -61,7 +61,7 @@ namespace CSVC {
                                 "opening");
             }
 
-            CsvInfoTextBlock.Text = $"CSV Loaded: \"{csvFileDialog.FileName}\"";
+            CsvInfoTextBlock.Text = $"CSV Loaded: \"{csvFileDialog.SafeFileName}\"";
             CsvLoaded = true;
         }
 

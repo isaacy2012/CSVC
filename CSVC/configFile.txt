@@ -1,6 +1,5 @@
-noheader
 column 0,1
-insert 1 "new"
+insert 1 "Category"
 category "Food And Drink" {
 	contains {
 		"Rest"
