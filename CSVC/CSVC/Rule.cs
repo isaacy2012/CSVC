@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace CSVC {
-
     public enum RuleType {
         EqualsRule,
-        ContainsRule
+        ContainsRule,
+        MatchesRule
     }
+
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     [SuppressMessage("ReSharper", "MemberCanBeProtected.Global")]
     public abstract class Rule : IComparable<Rule> {
@@ -20,12 +24,12 @@ namespace CSVC {
             Substitution = substitution;
             Type = type;
         }
-        
-        public string GetSubstitution() {
-            return Substitution;
-        }
 
         public abstract bool Applies(string input);
+
+        public bool Applies(List<string> input, List<int> indices) {
+            return indices.Any(index => Applies(input[index]));
+        }
 
         public int CompareTo(Rule other) {
             return Type.Equals(other.Type) ? other.Match.Length.CompareTo(Match.Length) : Type.CompareTo(other.Type);
@@ -47,8 +51,6 @@ namespace CSVC {
         public override string ToString() {
             return $"equals: {base.ToString()}";
         }
-        
-        
     }
 
     public class ContainsRule : Rule {
@@ -60,7 +62,24 @@ namespace CSVC {
         }
 
         public override string ToString() {
-            return $"equals: {base.ToString()}";
+            return $"contains: {base.ToString()}";
         }
+    }
+
+    public class MatchesRule : Rule {
+        private readonly Regex _matcher;
+        
+        public MatchesRule(string match, string substitution) : base(match, substitution, RuleType.MatchesRule) {
+            _matcher = new Regex(match);
+        }
+        
+        public override bool Applies(string input) {
+            return _matcher.IsMatch(input);
+        }
+
+        public override string ToString() {
+            return $"matches: {base.ToString()}";
+        }
+        
     }
 }

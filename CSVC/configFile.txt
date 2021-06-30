@@ -1,15 +1,27 @@
-column 0;
-category BAD {
+noheader
+column 0,1
+replace 1
+category "Food And Drink" {
 	contains {
-		"mac";
+		"Rest"
+		"Mc Donalds"
+		"Maccas"
 	}
 }
-category MCDONALDS {
+category "Bad" {
+	contains {
+		"Key"
+	}
+}
+category "Groceries" {
 	equals {
-		"mcdonalds";
+		"New World"
 	}
 	contains {
-		"macca";
-		"donalds";
+		"New World"
+		"CountDown"
+	}
+	matches {
+		"b.*a"
 	}
 }
