@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CSVC {
 
@@ -12,6 +13,12 @@ namespace CSVC {
             LineWriter = lineWriter;
             ReadColumns = readColumns;
             Header = header;
+        }
+
+        public override string ToString() {
+            return $"Write Mode: {LineWriter}\n" +
+                   $"Header: {Header}\n" +
+                   $"ReadColumns: {String.Join(",", ReadColumns)}";
         }
     }
 }

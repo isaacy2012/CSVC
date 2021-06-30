@@ -1,6 +1,6 @@
 noheader
 column 0,1
-replace 1
+insert 1 "new"
 category "Food And Drink" {
 	contains {
 		"Rest"

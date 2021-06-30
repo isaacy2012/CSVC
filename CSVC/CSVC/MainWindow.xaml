@@ -5,35 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSVC"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
-        Title="CSVC" Height="557" Width="500">
+        Title="CSVC" 
+        MinHeight="500" 
+        MinWidth="388"
+        Height="500" 
+        Width="388"
+        >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <TextBlock
+            Grid.Row = "0"
             Name="ConfigInfoTextBlock"
             VerticalAlignment="Top"
             HorizontalAlignment="Left" 
             Margin="0,0,0,0"
-            Height="18" Width="500" TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
+            TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
             Config Loaded: None
         </TextBlock>
         <TextBlock
+            Grid.Row = "1"
             Name="CsvInfoTextBlock"
             VerticalAlignment="Top"
             HorizontalAlignment="Left" 
-            Margin="0,18,0,0"
-            Height="18" Width="500" TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
+            Margin="0, 0, 0, 0"
+            TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
             CSV Loaded: None
         </TextBlock>
-        <Button Content="Load Config File" HorizontalAlignment="Left" Margin="0,36, 0,0" VerticalAlignment="Top"
+        <Button Content="Load Config File" HorizontalAlignment="Left" Margin="0, 0, 0, 0" VerticalAlignment="Top"
+            Grid.Row = "2"
                 Width="125"
                 Click="LoadConfigFileButton_OnClick" />
-        <Button Content="Load CSV File" HorizontalAlignment="Left" Margin="125,36,0,0" VerticalAlignment="Top"
+        <Button Content="Load CSV File" HorizontalAlignment="Left" Margin="125, 0, 0, 0" VerticalAlignment="Top"
+            Grid.Row = "2"
                 Width="125"
                 Click="LoadCSVFileButton_OnClick" />
-        <Button Content="Convert to CSV File" HorizontalAlignment="Left" Margin="250,36,0,0" VerticalAlignment="Top"
+        <Button Content="Convert to CSV File" HorizontalAlignment="Left" Margin="250, 0, 0, 0" VerticalAlignment="Top"
+            Grid.Row = "2"
                 Width="125"
                 Click="ConvertButton_OnClick" />
-        <DataGrid Name="RulesDataGrid" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"
-                  Height="500" Width="500" AutoGenerateColumns="True" />
+        <DataGrid Name="RulesDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 0, 0, 0" 
+            Grid.Row = "3"
+                  AutoGenerateColumns="True" />
     </Grid>
 </Window>

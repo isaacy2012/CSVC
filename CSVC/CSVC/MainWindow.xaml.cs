@@ -42,12 +42,11 @@ namespace CSVC {
                     }
                 } catch (RequireFailedException exception) {
                     MessageBox.Show(exception.Message);
+                    return;
                 }
-
-                // GetLines(configFileDialog.FileName);
             }
 
-            ConfigInfoTextBlock.Text = $"Config Loaded: \"{configFileDialog.FileName}\"";
+            ConfigInfoTextBlock.Text = $"Config Loaded: \"{configFileDialog.SafeFileName}\"\n{Params}";
             ConfigLoaded = true;
         }
 

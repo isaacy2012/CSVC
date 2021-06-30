@@ -47,6 +47,10 @@ namespace CSVC {
         public override void Write(List<string> line, string insert) {
             line[WriteColumn] = insert;
         }
+        
+        public override string ToString() {
+            return $"Replace at index {WriteColumn}";
+        }
     }
     
     public class Insert : MutableLineWriter, ILineWriter {
@@ -61,6 +65,10 @@ namespace CSVC {
         }
         public override void Write(List<string> line, string insert) {
             line.Insert(WriteColumn, insert);
+        }
+
+        public override string ToString() {
+            return $"Insert \"{_columnName}\" at index {WriteColumn}";
         }
     }
 }

@@ -50,7 +50,7 @@ namespace CSVC {
         /// <param name="s">Scanner</param>
         /// <returns>The ConfigParams</returns>
         private static ConfigParams ParseConfigParams(Scanner s) {
-            bool header = s.ConsumeIf(NoHeader);
+            bool header = !s.ConsumeIf(NoHeader);
             s.ConsumeIf(Semicolon);
             s.Require(Column);
             var readColumns = ParseList(s);

@@ -1,9 +1,9 @@
-Key, Key2, Value
-Thorndon, Food And Drink, 1
-New World, Groceries, 2
-, Groceries, 3
-Dragons, Food And Drink, 4
-Snapper, Food And Drink, 5
-Corner, Food And Drink, 2
-Count, , 3
-biiiiiiia, Groceries, 3
+Key, new, Key2, Value
+Thorndon, Food And Drink, Mc Donalds, 1
+New World, Groceries, Metro, 2
+, Groceries, New World Schafers, 3
+Dragons, Food And Drink, Restaurant, 4
+Snapper, Food And Drink, Rest., 5
+Corner, Food And Drink, Maccas, 2
+Count, , Down, 3
+biiiiiiia, Groceries, s, 3
