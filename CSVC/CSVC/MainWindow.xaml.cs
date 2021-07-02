@@ -73,7 +73,8 @@ namespace CSVC {
             }
             if (Params.ReadColumns.Any(col => col >= CsvLineList[0].Count || col < 0)) {
                 MessageBox.Show(
-                    $"Error, read column indices {Params.ReadColumns} out of bounds for CSV file with {CsvLineList[0].Count} columns.");
+                    $"Error, read column indices {Params.ReadColumns} out of bounds for CSV file with " +
+                    $"{CsvLineList[0].Count} columns.");
                 return;
             }
             try {
@@ -95,7 +96,7 @@ namespace CSVC {
                 MessageBox.Show("Error, file currently in use. Try closing the file elsewhere before " +
                                 "saving");
             }
-            
+
         }
     }
 }
